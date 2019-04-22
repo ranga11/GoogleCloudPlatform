@@ -13,7 +13,7 @@ sc.stop()
 
 # COMMAND ----------
 
-! pip install findspark
+#! pip install findspark
 
 # COMMAND ----------
 
