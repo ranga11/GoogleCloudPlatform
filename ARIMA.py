@@ -22,7 +22,9 @@
 # In[25]:
 
 
-import requests, pandas as pd, numpy as np
+import requests
+import pandas as pd
+import numpy as np
 from pandas import DataFrame
 from io import StringIO
 import time, json
