@@ -17,7 +17,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 from sklearn.metrics import *
 from matplotlib import style
 import matplotlib.pylab as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 from matplotlib.pylab import rcParams
 import warnings
 rcParams['figure.figsize'] = 16,8
