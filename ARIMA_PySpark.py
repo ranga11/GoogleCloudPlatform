@@ -55,10 +55,7 @@ get_csv()
 
 # COMMAND ----------
 
-df = (spark.read
-          .option("header", "true")
-          .option("inferSchema", value=True)
-          .csv("AMZN.csv"))
+df = (spark.read.option("header", "true").option("inferSchema", value=True).csv("AMZN.csv"))
 
 # COMMAND ----------
 
@@ -70,10 +67,7 @@ df.head(5)
 
 # COMMAND ----------
 
-df = df.select(
-        df['Date'],
-        df['Close'].cast(FloatType())
-    )
+df = df.select(df['Date'],df['Close'].cast(FloatType()))
 
 # COMMAND ----------
 
