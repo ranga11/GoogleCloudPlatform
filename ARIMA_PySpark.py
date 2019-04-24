@@ -55,7 +55,7 @@ get_csv()
 
 # COMMAND ----------
 
-df = (spark.read.option("header", "true").option("inferSchema", value=True).csv("AMZN.csv"))
+#df = (spark.read.option("header", "true").option("inferSchema", value=True).csv("AMZN.csv"))
 
 # COMMAND ----------
 
