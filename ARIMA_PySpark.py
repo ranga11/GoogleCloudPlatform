@@ -1,4 +1,5 @@
 # Databricks notebook source
+import gcloud
 import sys
 sys.path.insert(0, "/usr/lib/python2.7/site-packages")
 import numpy as np
