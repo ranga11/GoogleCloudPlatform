@@ -54,7 +54,8 @@ def get_csv():
 get_csv()
 
 # COMMAND ----------
-df = spark.read.csv("AMZN.csv", header=True, mode="DROPMALFORMED", schema=schema)
+df= spark.read.csv("AMZN.csv",header=True,sep="|");
+#df = spark.read.csv("AMZN.csv", header=True, mode="DROPMALFORMED", schema=schema)
 #df = (spark.read.option("header", "true").option("inferSchema", value=True).csv("AMZN.csv"))
 
 # COMMAND ----------
