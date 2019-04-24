@@ -1,5 +1,5 @@
 # Databricks notebook source
-import gcloud
+#import gcloud
 import sys
 sys.path.insert(0, "/home/vranga_11/.local/lib/python3.6/site-packages")
 import numpy as np
