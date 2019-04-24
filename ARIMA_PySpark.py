@@ -1,7 +1,7 @@
 # Databricks notebook source
 import gcloud
 import sys
-sys.path.insert(0, "/usr/lib/python2.7/site-packages")
+sys.path.insert(0, "/home/vranga_11/.local/lib/python3.6/site-packages")
 import numpy as np
 import pandas as pd
 import datetime as dt
