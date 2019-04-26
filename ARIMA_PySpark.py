@@ -34,8 +34,8 @@ from pyspark.context import SparkContext
 from pyspark.ml.linalg import Vectors
 from pyspark.ml.regression import LinearRegression
 from pyspark.sql.session import SparkSession
-import findspark
-findspark.init()
+from pyspark import SparkContext
+sc =SparkContext()
 
 # COMMAND ----------
 
@@ -66,7 +66,7 @@ findspark.init()
 #         .option("header", "true") \
 #         .option("inferSchema", "true") \
 #         .load(storage_bucket + "/" + amzn)
-sc = SparkContext()
+#sc = SparkContext()
 spark = SparkSession(sc)
 bucket = spark._jsc.hadoopConfiguration().get("fs.gs.system.bucket")
 project = spark._jsc.hadoopConfiguration().get("fs.gs.project.id")
