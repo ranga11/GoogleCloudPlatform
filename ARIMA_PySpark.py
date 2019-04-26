@@ -34,6 +34,8 @@ from pyspark.context import SparkContext
 from pyspark.ml.linalg import Vectors
 from pyspark.ml.regression import LinearRegression
 from pyspark.sql.session import SparkSession
+import findspark
+findspark.init()
 
 # COMMAND ----------
 
