@@ -32,7 +32,7 @@ from sklearn.metrics import mean_squared_error
 
 # COMMAND ----------
 
-spark = SparkSession.builder.getOrCreate()
+#spark = SparkSession.builder.getOrCreate()
 
 # COMMAND ----------
 
