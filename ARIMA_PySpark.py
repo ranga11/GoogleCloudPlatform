@@ -75,7 +75,7 @@ conf = {
 }
 
 
-put_directory = "gs://gs://{}/tmp/Amazondata-{}", ".format(bucket)"
+put_directory = "gs://gs://{}/tmp/Amazondata-{}", .format(bucket)
 
 
 df = spark.sparkContext.newAPIHadoopRDD(
