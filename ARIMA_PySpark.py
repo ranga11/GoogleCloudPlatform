@@ -74,8 +74,7 @@ conf = {
     "mapred.bq.input.table.id": "flash-freehold-237222:Arima_test.Amazondata",
 }
 
-
-put_directory = "gs://gs://{}/tmp/Amazondata-{}", .format(bucket)
+put_directory = "gs://gs://{}/tmp/Amazondata-{}".format(bucket)
 
 
 df = spark.sparkContext.newAPIHadoopRDD(
