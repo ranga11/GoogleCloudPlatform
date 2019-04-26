@@ -35,7 +35,7 @@ from pyspark.ml.linalg import Vectors
 from pyspark.ml.regression import LinearRegression
 from pyspark.sql.session import SparkSession
 from pyspark import SparkContext
-sc =SparkContext()
+sc =SparkContext.getOrCreate()
 
 # COMMAND ----------
 
