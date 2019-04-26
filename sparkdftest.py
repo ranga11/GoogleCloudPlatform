@@ -1,10 +1,10 @@
 # Databricks notebook source
 from pyspark.sql import *
 from pyspark import SparkContext
-from pyspark.context import SparkContext
-from pyspark.sql.session import SparkSession
-sc = SparkContext.getOrCreate()
-spark = SparkSession(sc)
+# from pyspark.context import SparkContext
+# from pyspark.sql.session import SparkSession
+# sc = SparkContext.getOrCreate()
+# spark = SparkSession(sc)
 
 # Create Example Data - Departments and Employees
 
