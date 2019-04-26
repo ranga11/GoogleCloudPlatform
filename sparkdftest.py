@@ -57,12 +57,12 @@ print (departmentWithEmployees1.employees[0].email)
 
 
 departmentsWithEmployeesSeq1 = [departmentWithEmployees1, departmentWithEmployees2]
-df1 = spark.createDataFrame(departmentsWithEmployeesSeq1)
+df1 = sqlContext.createDataFrame(departmentsWithEmployeesSeq1)
 
 display(df1)
 
 departmentsWithEmployeesSeq2 = [departmentWithEmployees3, departmentWithEmployees4]
-df2 = spark.createDataFrame(departmentsWithEmployeesSeq2)
+df2 = sqlContext.createDataFrame(departmentsWithEmployeesSeq2)
 
 display(df2)
 
