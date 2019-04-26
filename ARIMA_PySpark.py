@@ -36,29 +36,53 @@ spark = SparkSession.builder.getOrCreate()
 
 # COMMAND ----------
 
-start = datetime.now() # gets today's date
-start = start.replace(year=start.year-3) # gets the date before 3 years
-end = datetime.now() # gets today's date
+# start = datetime.now() # gets today's date
+# start = start.replace(year=start.year-3) # gets the date before 3 years
+# end = datetime.now() # gets today's date
 
-# COMMAND ----------
+# # COMMAND ----------
 
-def get_csv():
-    amzn_data = yf.download('AMZN',start,end) # getting amazon stock from yahoo finance
-    amzn_data.to_csv('AMZN.csv', index=True, header=True)
-    amzn_data.Close.plot() # Plotting the close value of stocks
-    plt.show()
-    return;
+# def get_csv():
+#     amzn_data = yf.download('AMZN',start,end) # getting amazon stock from yahoo finance
+#     amzn_data.to_csv('AMZN.csv', index=True, header=True)
+#     amzn_data.Close.plot() # Plotting the close value of stocks
+#     plt.show()
+#     return;
 
-# COMMAND ----------
+# # COMMAND ----------
 
-get_csv()
+# get_csv()
 
-df = spark \
-        .read \
-        .format("csv") \
-        .option("header", "true") \
-        .option("inferSchema", "true") \
-        .load(storage_bucket + "/" + amzn)
+# df = spark \
+#         .read \
+#         .format("csv") \
+#         .option("header", "true") \
+#         .option("inferSchema", "true") \
+#         .load(storage_bucket + "/" + amzn)
+sc = SparkContext()
+spark = SparkSession(sc)
+bucket = spark._jsc.hadoopConfiguration().get("fs.gs.system.bucket")
+project = spark._jsc.hadoopConfiguration().get("fs.gs.project.id")
+
+conf = {
+    # Input Parameters
+    "mapred.bq.project.id": flash-freehold-237222,
+    "mapred.bq.gcs.bucket": freehold-1,
+    "mapred.bq.temp.gcs.path": input_directory,
+    "mapred.bq.input.project.id": project,
+    "mapred.bq.input.dataset.id": "flash-freehold-237222",
+    "mapred.bq.input.table.id": "flash-freehold-237222:Arima_test.Amazondata",
+}
+
+
+put_directory = "gs://gs://{}/tmp/Amazondata-{}", ".format(bucket)
+
+
+df = spark.sparkContext.newAPIHadoopRDD(
+    "com.google.cloud.hadoop.io.bigquery.JsonTextBigQueryInputFormat",
+    "org.apache.hadoop.io.LongWritable",
+    "com.google.gson.JsonObject",
+    conf=conf)
 
 
 
